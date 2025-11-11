@@ -4,7 +4,13 @@ const nameOfBook = document.querySelector(".book-name-field");
 const nameOfAuthor = document.querySelector(".book-author-field");
 const nameOfGenre = document.querySelector(".book-genre-field");
 const bookID = document.querySelector(".book-ID-field");
+const bookInputField = document.querySelector("#name");
+const authorInputField = document.querySelector("#author");
+const genreInputField = document.querySelector("#genre");
+const submitBook = document.querySelector("#submit");
+const bookForm = document.querySelector(".book-form");
 
+// storing books in array
 let library = [];
 
 // book constructor
@@ -20,42 +26,15 @@ const Book = function (name, author, genre) {
     (this.ID = crypto.randomUUID()));
 };
 
-// const book = new Book("binding 13", "Chloe Walsh", "Fiction");
-// console.log(book);
+// function to accept book name, author, and genre from from form element
+bookForm.addEventListener("submit", (e) => {
+  e.preventDefault(); // prevents page reload on form submission
+  let name = document.querySelector("#name").value; // accessing the value of the name input element in the form
+  let author = document.querySelector("#author").value; // accessing the value of the author input element in the form
+  let genre = document.querySelector("#genre").value; // accessing the value of the genre input element in the form
 
-// - function to prompt user for info about book
-// - then pass that info through to the book constructor
-// - finally push the book to the library array
-const addBook = () => {
-  let bookName = prompt("Enter name of book here:");
-  let bookAuthor = prompt("Enter author name here:");
-  let bookGenre = prompt("Enter Genre of book here:");
-
-  let newBook = new Book(bookName, bookAuthor, bookGenre);
-  library.push(newBook);
-};
-
-const displayBooks = function (arr) {
-  arr.forEach((book) => {
-    for (const prop of book) {
-      if (prop === "name") {
-        nameOfBook.textContent = book.name;
-      } else if (prop === "author") {
-        nameOfAuthor.textContent = book.author;
-      } else if (prop === "genre") {
-        nameOfGenre.textContent = book.genre;
-      } else {
-        bookID.textContent = book.ID;
-      }
-    }
-  });
-};
-
-// nameOfBook.textContent = "test";
-// nameOfAuthor.textContent = "test";
-// nameOfGenre.textContent = "test";
-// bookID.textContent = crypto.randomUUID();
-
-addBook();
+  let newBook = new Book(name, author, genre); // passing the input element values through the Book constructor to create a book object
+  library.push(newBook); // pushing newBook to the library array BUG: make this function push multiple book to the array. Not just one.
+});
 
 console.log(library);
