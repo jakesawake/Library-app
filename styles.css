@@ -21,6 +21,7 @@ html {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
+  width: auto;
 }
 
 .title {
@@ -40,21 +41,71 @@ html {
 .books-container {
   justify-content: center;
   align-items: center;
-  width: 80vh;
-  height: 80vh;
+  width: 100vh;
+  height: 100vh;
 }
 
-.books {
-  display: flex;
+.card {
+  display: inline-block;
   flex-direction: column;
-  border: dotted 2px white;
-  width: 30vh;
-  height: 30vh;
+  border: solid 2px white;
+  margin: 0.5rem;
+  width: 280px;
+  height: auto;
 }
 
-.p-container {
-  display: flex;
-  flex-wrap: nowrap;
-  margin: 2px;
-  gap: 5px;
+/* keeps submit button at the bottom no matter what*/
+.form-button-container {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.book-form-container {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.book-form {
+  position: relative;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+}
+
+.text-in-card {
+  display: inline-block;
+  font-family: "bubbly-font";
+  margin: 1rem 0 1rem 1rem;
+  border: none;
+  background-color: transparent;
+  color: white;
+}
+
+.label {
+  color: #d4d925;
+}
+.remove-button {
+  background-color: #ffd93d;
+  color: black;
+  padding: 0.3rem;
+  height: 2rem;
+  border-radius: 10%;
+  margin-left: 1rem;
+  margin-bottom: 1rem;
+}
+
+.read-button {
+  background-color: #ffd93d;
+  color: black;
+  float: right;
+  padding: 0.3rem;
+  height: 2rem;
+  border-radius: 10%;
+  margin-right: 1rem;
+  margin-bottom: 1rem;
 }
